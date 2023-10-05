@@ -8,7 +8,7 @@ import profile from "../../assets/profile.jpg";
 
 const LeftSideBar = () => {
   return (
-    <div className='bg-white px-4 cursor-pointer py-5 h-[100vh] fixed z-50 top-0 flex flex-col items-center justify-between shadow-2xl'>
+    <div className='mobile:hidden tablet:bg-white tablet:px-4 tablet:cursor-pointer tablet:py-5 tablet:h-[100vh] tablet:fixed tablet:z-50 tablet:top-0 tablet:flex tablet:flex-col tablet:items-center tablet:justify-between tablet:shadow-2xl'>
         <div>
         <div className='p-3.5 bg-gray w-fit rounded-[10px] outline-dashed outline-1'>
             <AiOutlinePlus size={20}/>

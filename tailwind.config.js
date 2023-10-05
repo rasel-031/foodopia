@@ -12,6 +12,17 @@ module.exports = {
       'white-500': '#A0A0A0',
       'gray': '#F4F5FA',
     },
+    screens: {
+      'mobile': "320px",
+      'tablet': '720px',
+      // => @media (min-width: 640px) { ... }
+
+      'laptop': '1000px',
+      // => @media (min-width: 1024px) { ... }
+
+      'desktop': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    },
     extend: {},
   },
   plugins: [],

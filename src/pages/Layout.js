@@ -26,7 +26,7 @@ const Layout = () => {
   }
   return (
     <>
-    <div className="pl-28 pt-28 pr-[370px] h-screen bg-gray">
+    <div className="tablet:pl-28 tablet:pt-28 tablet:pr-[370px] tablet:h-screen tablet:bg-gray">
       <div className="flex gap-4 overflow-x-auto w-full">
         <Button
           name="Most Ordered"

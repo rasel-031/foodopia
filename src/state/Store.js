@@ -14,3 +14,18 @@ export const OrderProvider =({children})=>{
 export const useOrder =()=>{
     return useContext(OrderContext);
 }
+
+//item counter
+const ItemContainerContext = createContext();
+export const ItemContainerProvider =({children})=>{
+    const [items, setItems] = useState([]);
+    return(
+        <ItemContainerContext.Provider value = {{items, setItems}}>
+            {children}
+        </ItemContainerContext.Provider>
+    )
+}
+
+export const useItemContainer =()=>{
+    return useContext(ItemContainerContext);
+}

@@ -14,7 +14,7 @@ const ItemModal = ({ clickedOutside, data }) => {
   
   return (
     <>
-      <div className="fixed z-30 top-0 w-screen h-screen bg-white-500 opacity-50"></div>
+      <div className="fixed z-30 top-0 w-screen h-screen bg-white-500 opacity-25"></div>
       <div className="flex items-center justify-center w-screen h-screen fixed z-50 top-0 ">
       <OutsideClickHandler onOutsideClick={() => clickedOutside(false)} >
         <div className="p-3 bg-pink-500 w-fit rounded-lg ">

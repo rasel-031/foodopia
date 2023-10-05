@@ -1,28 +1,29 @@
-import React, { useState } from 'react'
-import { useOrder } from '../state/Store';
+import React from 'react'
+import { useItemContainer, useOrder } from '../state/Store';
 
 const OrderPage = () => {
   const tax = 4.50;
   //use custom hook from useContext Api
   const { order } = useOrder();
-  let [itemCounter, setItemCounter] = useState([]);
+  const {items, setItems} = useItemContainer();
 
   const incrementItem = (getId) =>{
-    setItemCounter([...itemCounter, getId]);
+    setItems([...items, getId]);
   }
 
   const decrementItem =(getId)=>{
-    const indexToRemove = itemCounter.indexOf(getId);
+    const indexToRemove = items.indexOf(getId);
     if (indexToRemove !== -1) {
-      itemCounter.splice(indexToRemove, 1);
-      setItemCounter([...itemCounter]);
+      items.splice(indexToRemove, 1);
+      setItems([...items]);
     }
   }
 
   return (
-    <div className='w-[340px] h-full bg-white fixed z-30 right-0 top-0 pt-24 pb-10 px-5 shadow-xl'>
+    
+    <div className='mobile:hidden tablet:block tablet:w-[340px] tablet:h-screen tablet:bg-white tablet:fixed tablet:z-30 tablet:right-0 tablet:top-0 tablet:pt-24 tablet:pb-10 tablet:px-5 tablet:shadow-xl'>
       <p className='text-2xl py-4'>Current Order</p>
-      <div className='flex flex-col gap-4 overflow-x-auto h-[300px]'>
+      <div className='flex flex-col gap-4 overflow-x-auto desktop:h-[300px] tablet:h-[250px]'>
       {order.map((item, index)=>(
         <div key={index} className='bg-gray rounded flex p-3'>
           <img src={item.image_url} className='w-[80px] h-[60px] rounded mr-4' alt='order.jpg'/>
@@ -33,7 +34,7 @@ const OrderPage = () => {
               <div className='flex items-center gap-4'>
                 <button className='bg-white px-2 rounded-lg border' onClick={()=> decrementItem(item.id)}>-</button>
                 {/* reduce function use for count duplicate value */}
-                <p>{itemCounter.reduce((acc, id) => (id === item.id ? acc + 1 : acc), 0) + 1}</p>
+                <p>{items.reduce((acc, id) => (id === item.id ? acc + 1 : acc), 0) + 1}</p>
                 
                 <button className='bg-pink px-1.5 rounded-lg border' onClick={()=> incrementItem(item.id)}>+</button>
               </div>
@@ -47,7 +48,7 @@ const OrderPage = () => {
           <p>Subtotal</p>
           <p className='font-bold'>
             {/* reduce function use for sum price*/}
-            ${(itemCounter.reduce((acc, id) => acc + (order.find((item) => item.id === id)?.price || 0), 0) + order.reduce((acc, item) => acc + item.price, 0)).toFixed(2)}
+            ${(items.reduce((acc, id) => acc + (order.find((item) => item.id === id)?.price || 0), 0) + order.reduce((acc, item) => acc + item.price, 0)).toFixed(2)}
           </p>
         </div>
         <div className='flex items-center justify-between w-[300px]'>
@@ -58,7 +59,7 @@ const OrderPage = () => {
         <div className='flex items-center justify-between w-[300px] text-lg font-bold'>
           <p>Total</p>
           <p>
-            ${(order.length > 0 ? (itemCounter.reduce((acc, id) => acc + (order.find((item) => item.id === id)?.price || 0), 0) + tax + order.reduce((acc, item) => acc + item.price, 0)) : (0.00)).toFixed(2)}
+            ${(order.length > 0 ? (items.reduce((acc, id) => acc + (order.find((item) => item.id === id)?.price || 0), 0) + tax + order.reduce((acc, item) => acc + item.price, 0)) : (0.00)).toFixed(2)}
           </p>
         </div>
       </div>

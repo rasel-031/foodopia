@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { OrderProvider } from './state/Store';
+import { ItemContainerProvider, OrderProvider } from './state/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <OrderProvider>
-      <App />
+      <ItemContainerProvider>
+        <App />
+      </ItemContainerProvider>
     </OrderProvider>
   </React.StrictMode>
 );
