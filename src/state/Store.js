@@ -29,3 +29,18 @@ export const ItemContainerProvider =({children})=>{
 export const useItemContainer =()=>{
     return useContext(ItemContainerContext);
 }
+
+//modal context
+const OpenModalContext = createContext();
+export const OpenModalProvider =({children})=>{
+    const [openModal, setOpenModal] = useState({value:'', open:false});
+    return(
+        <OpenModalContext.Provider value = {{openModal, setOpenModal}}>
+            {children}
+        </OpenModalContext.Provider>
+    )
+}
+
+export const useModal =()=>{
+    return useContext(OpenModalContext);
+}

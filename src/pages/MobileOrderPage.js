@@ -2,7 +2,7 @@ import React from 'react'
 import { useItemContainer, useModal, useOrder } from '../state/Store';
 import Button from '../components/Button';
 
-const OrderPage = () => {
+const MobileOrderPage = () => {
   const tax = 4.50;
   //use custom hook from useContext Api
   const { order } = useOrder();
@@ -21,13 +21,13 @@ const OrderPage = () => {
     }
   }
   return (
-    
-    <div className='hidden lg:block w-[340px] h-screen bg-white fixed z-30 right-0 top-0 pt-24 pb-10 px-5 shadow-xl'>
+    <div className={`${openModal.value === 'order-menu' && openModal.open ? "translate-y-28" : "-translate-y-full"} lg:hidden flex w-screen justify-center fixed z-50 transition-transform duration-500 ease-in-out`}>
+    <div className='shadow-xl w-fit flex flex-col p-2 mb:p-5 bg-gray rounded'>
       <div className='flex items-center justify-between'>
           <p className='text-2xl py-4'>Current Order</p>
-          <Button onClick={()=>setOpenModal(!openModal)} name='Close' bg="bg-pink" css="h-fit w-fit lg:hidden"/>
+          <Button onClick={()=>setOpenModal({value:'order-menu', open:!openModal.open})} name='Close' bg="bg-pink" css="h-fit w-fit lg:hidden"/>
       </div>
-      <div className='flex flex-col gap-4 h-[240px] overflow-y-auto'>
+      <div className='flex flex-col gap-4 h-[100px] overflow-y-auto'>
       {order.map((item, index)=>(
         <div key={index} className='bg-gray rounded flex p-3'>
           <img src={item.image_url} className='w-[80px] h-[60px] rounded mr-4' alt='order.jpg'/>
@@ -69,7 +69,8 @@ const OrderPage = () => {
       </div>
       <button className='bg-pink py-3 w-full text-gray rounded'>Print Bills</button>
     </div>
+    </div>
   )
 }
 
-export default OrderPage;
+export default MobileOrderPage;

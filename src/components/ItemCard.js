@@ -6,9 +6,9 @@ const ItemCard = ({data, onChildData}) => {
     onChildData(id);
   }
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex justify-center flex-wrap gap-4">
       {data.map((item, index) => (
-        <div className="p-3 bg-white w-fit rounded-lg cursor-pointer" key={index} onClick={()=>getItemId(item.id)}>
+        <div className="p-3 bg-white flex-1 min-w-[180px] max-w-fit rounded-lg cursor-pointer" key={index} onClick={()=>getItemId(item.id)}>
           <img src={item.image_url} className="w-[180px] h-[120px] rounded-lg" alt="food.jpg"/>
           <div>
             <p className="font-bold text-lg">{item.name}</p>

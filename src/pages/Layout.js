@@ -26,41 +26,41 @@ const Layout = () => {
   }
   return (
     <>
-    <div className="tablet:pl-28 tablet:pt-28 tablet:pr-[370px] tablet:h-screen tablet:bg-gray">
+    <div className="px-[5vw] lg:pl-28 pt-28 lg:pr-[370px] lg:h-screen bg-gray">
       <div className="flex gap-4 overflow-x-auto w-full">
         <Button
           name="Most Ordered"
-          children={<CiStar size={23} />}
+          icon={<CiStar size={23} />}
           bg={category === "most-ordered" ? true : undefined}
           onClick={() => getCategory("most-ordered")}
         />
         <Button
           name="Snack"
-          children={<PiCookingPotLight size={23} />}
+          icon={<PiCookingPotLight size={23} />}
           bg={category === "snack" ? true : undefined}
           onClick={() => getCategory("snack")}
         />
         <Button
           name="Beverage"
-          children={<CiCoffeeCup size={23} />}
+          icon={<CiCoffeeCup size={23} />}
           bg={category === "beverage" ? true : undefined}
           onClick={() => getCategory("beverage")}
         />
         <Button
           name="Coffee"
-          children={<PiCoffeeLight size={23} />}
+          icon={<PiCoffeeLight size={23} />}
           bg={category === "coffee" ? true : undefined}
           onClick={() => getCategory("coffee")}
         />
         <Button
           name="Italian"
-          children={<CiPizza size={23} />}
+          icon={<CiPizza size={23} />}
           bg={category === "italian" ? true : undefined}
           onClick={() => getCategory("italian")}
         />
         <Button
           name="Burger"
-          children={<PiHamburgerLight size={23} />}
+          icon={<PiHamburgerLight size={23} />}
           bg={category === "burger" ? true : undefined}
           onClick={() => getCategory("burger")}
         />

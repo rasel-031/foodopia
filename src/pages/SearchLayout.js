@@ -12,9 +12,9 @@ const SearchLayout = ({ data }) => {
   }
   return (
     <>
-    <div className="pl-28 pt-28 pr-[370px] h-screen bg-gray">
+    <div className="px-[5vw] lg:pl-28 pt-28 lg:pr-[370px] lg:h-screen bg-gray">
       {data.length > 0 ? (
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 justify-center">
         {data.map((item, index) => (
           <div
             className="p-3 bg-white w-fit rounded-lg cursor-pointer"
@@ -46,7 +46,7 @@ const SearchLayout = ({ data }) => {
       </div>
       ) : (
         <div>
-            <p>Search not found!</p>
+            <p className="text-pink">Search not found!</p>
         </div>
       )}
     </div>

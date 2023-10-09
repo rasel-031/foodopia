@@ -6,9 +6,9 @@ import { IoCreateOutline } from "react-icons/io5";
 import { AiOutlineDown } from "react-icons/ai";
 import { PiBuildings } from "react-icons/pi";
 import { useItemContainer, useOrder } from "../../state/Store";
-import Layout from "../Layout";
 import SearchLayout from "../SearchLayout";
 import { foods } from "../../api/data";
+import Layout from "../Layout";
 
 const TopNavBar = () => {
   const { setOrder } = useOrder();
@@ -30,7 +30,7 @@ const TopNavBar = () => {
 
   return (
     <>
-      <div className="tablet:pl-28 tablet:pr-6 tablet:py-5 bg-white fixed z-40 top-0 w-screen flex laptop:flex-row tablet:flex-col gap-5 items-center justify-between shadow-xl">
+      <div className="hidden lg:pl-28 lg:pr-6 lg:py-5 bg-white fixed z-40 top-0 w-screen lg:flex lg:gap-5 lg:items-center lg:justify-between shadow-xl">
         <div className="flex items-center">
           <CiSearch className="absolute ml-2" />
           <form className="flex items-center" onSubmit={handleSubmit}>
@@ -55,13 +55,13 @@ const TopNavBar = () => {
           <Button
             name="Reset Order"
             css="border-2 border-white-500"
-            children={<TbLoader3 size={25} />}
+            icon={<TbLoader3 size={25} />}
             onClick={handleResetOrder}
           />
           <Button
             name="Create a note"
             css="border-2 border-white-500"
-            children={<IoCreateOutline size={25} />}
+            icon={<IoCreateOutline size={25} />}
           />
           <div className="flex px-2 items-center gap-2 cursor-pointer">
             <div className="p-2 bg-pink text-gray w-fit rounded-full">
@@ -75,7 +75,9 @@ const TopNavBar = () => {
           </div>
         </div>
       </div>
-      {searchQuery.replace(/\s+/g, '').length > 0 ? (<SearchLayout data = {searchData}/>):(<Layout/>)}
+      <div className="hidden lg:block">
+        {searchQuery.replace(/\s+/g, '').length > 0 ? (<SearchLayout data = {searchData}/>):(<Layout/>)}
+      </div>
     </>
   );
 };

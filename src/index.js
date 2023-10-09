@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ItemContainerProvider, OrderProvider } from './state/Store';
+import { ItemContainerProvider, OrderProvider, OpenModalProvider } from './state/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <OrderProvider>
-      <ItemContainerProvider>
-        <App />
-      </ItemContainerProvider>
-    </OrderProvider>
+    <OpenModalProvider>
+      <OrderProvider>
+        <ItemContainerProvider>
+          <App />
+        </ItemContainerProvider>
+      </OrderProvider>
+    </OpenModalProvider>
   </React.StrictMode>
 );
 

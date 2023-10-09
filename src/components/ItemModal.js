@@ -15,12 +15,12 @@ const ItemModal = ({ clickedOutside, data }) => {
   return (
     <>
       <div className="fixed z-30 top-0 w-screen h-screen bg-white-500 opacity-25"></div>
-      <div className="flex items-center justify-center w-screen h-screen fixed z-50 top-0 ">
+      <div className="flex items-center justify-center w-screen h-screen fixed z-50 top-10 ">
       <OutsideClickHandler onOutsideClick={() => clickedOutside(false)} >
         <div className="p-3 bg-pink-500 w-fit rounded-lg ">
           <img
             src={data.image_url}
-            className="w-[320px] h-[220px] rounded-lg"
+            className="w-[280px] h-[220px] rounded-lg"
             alt="food.jpg"
           />
           <div className="flex flex-col gap-1 ">
