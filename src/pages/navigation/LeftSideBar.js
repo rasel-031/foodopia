@@ -10,7 +10,7 @@ import { useModal } from "../../state/Store";
 const LeftSideBar = () => {
   const {openModal} = useModal();
   return (
-    <div className={` ${openModal.value === 'menu' && openModal.open ? "translate-x-0":"-translate-x-full"} transform transition-transform duration-300 ease-in-out overflow-y-auto bg-white px-4 cursor-pointer py-5 h-screen fixed z-50 top-0 flex flex-col items-center justify-between shadow-2xl`}>
+      <div className={` ${openModal.value === 'menu' && openModal.open ? "translate-x-0":"-translate-x-full"} lg:translate-x-0 transform transition-transform duration-300 ease-in-out overflow-y-auto bg-white px-4 cursor-pointer py-5 h-screen fixed z-50 top-0 flex flex-col items-center justify-between shadow-2xl`}>
       <div>
         <div className="p-3.5 bg-gray w-fit rounded-[10px] outline-dashed outline-1">
           <AiOutlinePlus size={20} />
